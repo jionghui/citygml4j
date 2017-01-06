@@ -70,6 +70,9 @@ import org.citygml4j.model.gml.coverage.RectifiedGridCoverage;
 import org.citygml4j.xml.schema.ElementDecl;
 import org.w3c.dom.Element;
 
+import org.citygml4j.model.citygml.underground.Underground;
+import org.citygml4j.model.citygml.underground.UndergroundPart;
+
 public interface FeatureVisitor extends Visitor {
 	public void visit(Appearance appearance);
 	public void visit(GeoreferencedTexture georeferencedTexture);
@@ -154,4 +157,11 @@ public interface FeatureVisitor extends Visitor {
 	public void visit(WaterSurface waterSurface);
 	public void visit(ADEComponent adeComponent);
 	public void visit(Element element, ElementDecl decl);
+	
+	public void visit(Underground underground);
+	public void visit(UndergroundPart undergroundPart);
+	public void visit(org.citygml4j.model.citygml.underground.RoofSurface roofSurface);
+	public void visit(org.citygml4j.model.citygml.underground.WallSurface wallSurface);
+	public void visit(org.citygml4j.model.citygml.underground.GroundSurface groundSurface);
+	public void visit(org.citygml4j.model.citygml.underground.ClosureSurface closureSurface);
 }

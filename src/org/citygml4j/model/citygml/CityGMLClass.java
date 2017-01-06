@@ -144,6 +144,11 @@ import org.citygml4j.model.common.base.ModelClassEnum;
 import org.citygml4j.model.gml.GMLClass;
 import org.citygml4j.model.xal.XALClass;
 
+import org.citygml4j.model.citygml.underground.AbstractUnderground;
+import org.citygml4j.model.citygml.underground.Underground;
+import org.citygml4j.model.citygml.underground.UndergroundPart;
+import org.citygml4j.model.citygml.underground.UndergroundPartProperty;
+
 public enum CityGMLClass implements ModelClassEnum {
 	UNDEFINED(null),
 	ABSTRACT_GML_GEOMETRY(null),
@@ -346,7 +351,19 @@ public enum CityGMLClass implements ModelClassEnum {
 	_TEXTURED_SURFACE(_TexturedSurface.class),	
 	_COLOR(_Color.class),
 	_TEXTURE_TYPE(_TextureType.class),
-	_APPEARANCE_PROPERTY(_AppearanceProperty.class);
+	_APPEARANCE_PROPERTY(_AppearanceProperty.class),
+	
+	// Underground
+	ABSTRACT_UNDERGROUND_BOUNDARY_SURFACE(org.citygml4j.model.citygml.underground.AbstractBoundarySurface.class),
+	ABSTRACT_UNDERGROUND(AbstractUnderground.class),
+	UNDERGROUND(Underground.class),
+	UNDERGROUND_PART(UndergroundPart.class),
+	UNDERGROUND_PART_PROPERTY(UndergroundPartProperty.class),
+	UNDERGROUND_WALL_SURFACE(org.citygml4j.model.citygml.underground.WallSurface.class),
+	UNDERGROUND_ROOF_SURFACE(org.citygml4j.model.citygml.underground.RoofSurface.class),
+	UNDERGROUND_GROUND_SURFACE(org.citygml4j.model.citygml.underground.GroundSurface.class),
+	UNDERGROUND_CLOSURE_SURFACE(org.citygml4j.model.citygml.underground.ClosureSurface.class),
+	UNDERGROUND_BOUNDARY_SURFACE_PROPERTY(org.citygml4j.model.citygml.underground.BoundarySurfaceProperty.class);
 
 	private final Class<? extends CityGML> modelClass;
 

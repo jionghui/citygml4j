@@ -16,35 +16,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.citygml4j.model.module.citygml;
+package org.citygml4j.model.citygml.underground;
 
-import org.citygml4j.model.module.ModuleType;
+import org.citygml4j.model.citygml.CityGML;
 
-public enum CityGMLModuleType implements ModuleType {
-	CORE("Core"),
-	APPEARANCE("Appearance"),
-	BRIDGE("Bridge"),
-	BUILDING("Building"),
-	CITY_FURNITURE("CityFurniture"),
-	CITY_OBJECT_GROUP("CityObjectGroup"),
-	GENERICS("Generics"),
-	LAND_USE("LandUse"),
-	RELIEF("Relief"),
-	TRANSPORTATION("Transportation"),
-	TUNNEL("Tunnel"),
-	VEGETATION("Vegetation"),
-	WATER_BODY("WaterBody"),
-	UNDERGROUND("UnderGround"),
-	TEXTURED_SURFACE("TexturedSurface");
+public interface UndergroundModuleComponent extends CityGML {
 
-	private final String value;
-
-	CityGMLModuleType(String value) {
-		this.value = value;
-	}
-
-	public String toString() {
-		return value;
-	}
-	
 }

@@ -70,6 +70,9 @@ import org.citygml4j.model.gml.coverage.RectifiedGridCoverage;
 import org.citygml4j.xml.schema.ElementDecl;
 import org.w3c.dom.Element;
 
+import org.citygml4j.model.citygml.underground.Underground;
+import org.citygml4j.model.citygml.underground.UndergroundPart;
+
 public interface FeatureFunctor<T> extends Functor<T> {
 	public T apply(Appearance appearance);
 	public T apply(GeoreferencedTexture georeferencedTexture);
@@ -154,4 +157,11 @@ public interface FeatureFunctor<T> extends Functor<T> {
 	public T apply(WaterSurface waterSurface);
 	public T apply(ADEComponent adeComponent);
 	public T apply(Element element, ElementDecl decl);
+	
+	public T apply(Underground underground);
+	public T apply(UndergroundPart undergroundPart);
+	public T apply(org.citygml4j.model.citygml.underground.RoofSurface roofSurface);
+	public T apply(org.citygml4j.model.citygml.underground.WallSurface wallSurface);
+	public T apply(org.citygml4j.model.citygml.underground.ClosureSurface closureSurface);
+	public T apply(org.citygml4j.model.citygml.underground.GroundSurface groundSurface);
 }
