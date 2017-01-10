@@ -46,6 +46,8 @@ import org.citygml4j.model.module.xal.XALCoreModule;
 import org.citygml4j.model.module.xal.XALModule;
 import org.citygml4j.model.module.xal.XALModuleType;
 
+import org.citygml4j.model.module.citygml.UndergroundModule;
+
 public class Modules {
 	static HashMap<ModuleType, List<? extends Module>> modules;
 
@@ -65,6 +67,7 @@ public class Modules {
 		modules.put(CityGMLModuleType.TUNNEL, TunnelModule.getInstances());
 		modules.put(CityGMLModuleType.VEGETATION, VegetationModule.getInstances());
 		modules.put(CityGMLModuleType.WATER_BODY, WaterBodyModule.getInstances());
+		modules.put(CityGMLModuleType.UNDERGROUND, UndergroundModule.getInstances());
 		modules.put(CityGMLModuleType.TEXTURED_SURFACE, TexturedSurfaceModule.getInstances());
 
 		modules.put(GMLModuleType.CORE, GMLCoreModule.getInstances());

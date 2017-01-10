@@ -51,6 +51,7 @@ import org.citygml4j.builder.jaxb.unmarshal.citygml.vegetation.Vegetation100Unma
 import org.citygml4j.builder.jaxb.unmarshal.citygml.vegetation.Vegetation200Unmarshaller;
 import org.citygml4j.builder.jaxb.unmarshal.citygml.waterbody.WaterBody100Unmarshaller;
 import org.citygml4j.builder.jaxb.unmarshal.citygml.waterbody.WaterBody200Unmarshaller;
+import org.citygml4j.builder.jaxb.unmarshal.citygml.underground.Underground200Unmarshaller;
 import org.citygml4j.model.citygml.CityGML;
 import org.citygml4j.model.citygml.ade.ADEComponent;
 import org.citygml4j.model.module.Modules;
@@ -71,6 +72,7 @@ import org.citygml4j.model.module.citygml.TransportationModule;
 import org.citygml4j.model.module.citygml.TunnelModule;
 import org.citygml4j.model.module.citygml.VegetationModule;
 import org.citygml4j.model.module.citygml.WaterBodyModule;
+import org.citygml4j.model.module.citygml.UndergroundModule;
 import org.citygml4j.xml.io.reader.MissingADESchemaException;
 
 public class CityGMLUnmarshaller {
@@ -90,6 +92,7 @@ public class CityGMLUnmarshaller {
 	private final Tunnel200Unmarshaller tun200;
 	private final Vegetation200Unmarshaller veg200;
 	private final WaterBody200Unmarshaller wtr200;
+	private final Underground200Unmarshaller ug200;
 
 	private final Appearance100Unmarshaller app100;
 	private final Building100Unmarshaller bldg100;
@@ -123,7 +126,8 @@ public class CityGMLUnmarshaller {
 		tun200 = new Tunnel200Unmarshaller(this);
 		veg200 = new Vegetation200Unmarshaller(this);
 		wtr200 = new WaterBody200Unmarshaller(this);
-
+		ug200 = new Underground200Unmarshaller(this);
+		
 		app100 = new Appearance100Unmarshaller(this);
 		bldg100 = new Building100Unmarshaller(this);
 		frn100 = new CityFurniture100Unmarshaller(this);
@@ -174,6 +178,8 @@ public class CityGMLUnmarshaller {
 			dest = veg200.unmarshal(src);
 		else if (namespaceURI.equals(WaterBodyModule.v2_0_0.getNamespaceURI()))
 			dest = wtr200.unmarshal(src);
+		else if (namespaceURI.equals(UndergroundModule.v2_0_0.getNamespaceURI()))
+			dest = ug200.unmarshal(src);
 
 		// CityGML version 1.0.0
 		else if (namespaceURI.equals(AppearanceModule.v1_0_0.getNamespaceURI()))
@@ -300,6 +306,10 @@ public class CityGMLUnmarshaller {
 			else if (version == CityGMLModuleVersion.v1_0_0)
 				dest = wtr100.unmarshal(src);
 		}
+		
+		else if (type == CityGMLModuleType.UNDERGROUND) {
+			dest = wtr200.unmarshal(src);
+		}
 
 		else if (type == CityGMLModuleType.CORE) {
 			if (version == CityGMLModuleVersion.v2_0_0)
@@ -340,6 +350,8 @@ public class CityGMLUnmarshaller {
 				return veg200.assignGenericProperty(genericProperty, substitutionGroup, dest);		
 			else if (namespaceURI.equals(WaterBodyModule.v2_0_0.getNamespaceURI()))
 				return wtr200.assignGenericProperty(genericProperty, substitutionGroup, dest);	
+			else if (namespaceURI.equals(UndergroundModule.v2_0_0.getNamespaceURI()))
+				return ug200.assignGenericProperty(genericProperty, substitutionGroup, dest);
 		}
 
 		else if (version == CityGMLModuleVersion.v1_0_0) {			
@@ -450,6 +462,10 @@ public class CityGMLUnmarshaller {
 
 	public WaterBody200Unmarshaller getWaterBody200Unmarshaller() {
 		return wtr200;
+	}
+	
+	public Underground200Unmarshaller getUnderground200Unmarshaller() {
+		return ug200;
 	}
 
 	public Appearance100Unmarshaller getAppearance100Unmarshaller() {

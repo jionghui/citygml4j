@@ -36,6 +36,7 @@ import org.citygml4j.model.module.citygml.TransportationModule;
 import org.citygml4j.model.module.citygml.TunnelModule;
 import org.citygml4j.model.module.citygml.VegetationModule;
 import org.citygml4j.model.module.citygml.WaterBodyModule;
+import org.citygml4j.model.module.citygml.UndergroundModule;
 import org.citygml4j.model.module.gml.GMLCoreModule;
 import org.citygml4j.model.module.xal.XALCoreModule;
 
@@ -60,6 +61,7 @@ public class JAXBContextPath {
 		contextPathMap.put(TunnelModule.v2_0_0, "net.opengis.citygml.tunnel._2");
 		contextPathMap.put(VegetationModule.v2_0_0, "net.opengis.citygml.vegetation._2");
 		contextPathMap.put(WaterBodyModule.v2_0_0, "net.opengis.citygml.waterbody._2");
+		contextPathMap.put(UndergroundModule.v2_0_0, "net.opengis.citygml.underground._2");
 		
 		// CityGML 1.0
 		contextPathMap.put(CoreModule.v1_0_0, "net.opengis.citygml._1");

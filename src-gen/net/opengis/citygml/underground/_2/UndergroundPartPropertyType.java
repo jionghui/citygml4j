@@ -3,6 +3,7 @@ package net.opengis.citygml.underground._2;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -10,6 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.w3._1999.xlink.ActuateType;
 import org.w3._1999.xlink.ShowType;
 import org.w3._1999.xlink.TypeType;
+import org.w3c.dom.Element;
 
 
 /**
@@ -38,12 +40,16 @@ import org.w3._1999.xlink.TypeType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UndergroundPartPropertyType", propOrder = {
-    "undergroundPart"
+    "undergroundPart",
+    "_ADEComponent"
+	
 })
 public class UndergroundPartPropertyType {
 
     @XmlElement(name = "UndergroundPart")
     protected UndergroundPartType undergroundPart;
+    @XmlAnyElement
+    protected Element _ADEComponent;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml")
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
@@ -90,6 +96,19 @@ public class UndergroundPartPropertyType {
         return (this.undergroundPart!= null);
     }
 
+    
+    public Element get_ADEComponent() {
+        return _ADEComponent;
+    }
+    
+    public void set_ADEComponent(Element value) {
+        this._ADEComponent = value;
+    }
+    
+    public boolean isSet_ADEComponent() {
+        return (this._ADEComponent!= null);
+    }
+    
     /**
      * Gets the value of the remoteSchema property.
      * 

@@ -4,6 +4,7 @@ package net.opengis.citygml.underground._2;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -11,6 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.w3._1999.xlink.ActuateType;
 import org.w3._1999.xlink.ShowType;
 import org.w3._1999.xlink.TypeType;
+import org.w3c.dom.Element;
 
 
 /**
@@ -42,12 +44,15 @@ import org.w3._1999.xlink.TypeType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BoundarySurfacePropertyType", propOrder = {
-    "_BoundarySurface"
+    "_BoundarySurface",
+	"_ADEComponent"
 })
 public class BoundarySurfacePropertyType {
 
     @XmlElementRef(name = "_BoundarySurface", namespace = "http://www.opengis.net/citygml/underground/2.0", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractBoundarySurfaceType> _BoundarySurface;
+    @XmlAnyElement
+    protected Element _ADEComponent;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml")
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
@@ -100,6 +105,18 @@ public class BoundarySurfacePropertyType {
 
     public boolean isSet_BoundarySurface() {
         return (this._BoundarySurface!= null);
+    }
+    
+    public Element get_ADEComponent() {
+        return _ADEComponent;
+    }
+    
+    public void set_ADEComponent(Element value) {
+        this._ADEComponent = value;
+    }
+
+    public boolean isSet_ADEComponent() {
+        return (this._ADEComponent!= null);
     }
 
     /**
