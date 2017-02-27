@@ -110,6 +110,10 @@ public class Underground200Unmarshaller {
 				dest.addUsage(jaxb.getGMLUnmarshaller().unmarshalCode(usage));
 		}
 		
+		if (src.isSetLevel()) {
+			dest.setLevel(jaxb.getGMLUnmarshaller().unmarshalCode(src.getLevel()));
+		}
+		
 		if (src.isSetStartHeight())
 			dest.setStartHeight(jaxb.getGMLUnmarshaller().unmarshalLength(src.getStartHeight()));
 		
